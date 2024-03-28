@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+       body {
+            font-family: 'Arial', sans-serif;
+            /* Add the SVG background image here */
+            background-image: url('back.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            animation: fadeIn 2s ease-in-out;
+        }
+        
+        h1 {
+            color: #333;
+            text-shadow: 2px 2px 4px #aaa;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        form:hover {
+            transform: scale(1.05);
+        }
+        input[type="text"] {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            width: 300px;
+            margin-bottom: 10px;
+            transition: border-color 0.3s ease;
+        }
+        input[type="text"]:focus {
+            border-color: #66afe9;
+        }
+        button {
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #449d44;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            animation: fadeIn 2s ease-in-out;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+            transition: background-color 0.3s ease;
+        }
+        th {
+            background-color: #333;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        /* Keyframes for fade-in effect */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <h1>URL SHORTENER</h1>
+    <% if(locals.id) { %>
+        <p>URL GENERATED: http://localhost:8001/url/<%= locals.id %></p>
+    <% } %>
+    <div>
+        <form method="POST" action="/url">
+            <label>Enter Your Original URL</label>
+            <input type="text" name="url" placeholder="https://example.com" />
+            <button type="submit">Generate</button>
+        </form>
+    </div>
+    <% if(locals.urls) { %>
+        <table>
+            <thead>
+                <th>S.NO</th>
+                <th>ShortId</th>
+                <th>Redirect</th>
+                <th>Clicks</th>
+            </thead>
+            <tbody>
+                <% locals.urls.forEach((url, index) => { %>
+                    <tr>
+                        <td><%= index + 1 %></td>
+                        <td><%= url.shortId %></td>
+                        <td><%= url.redirecturl %></td>
+                        <td><%= url.visithistory.length %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    <% } %>
+</body>
+</html>
