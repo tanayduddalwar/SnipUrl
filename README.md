@@ -40,7 +40,7 @@ npm start
 
 
 5. Access the application:
-- Open your web browser and navigate to `http://localhost:8000` to access the URL shortener application.
+- Open your web browser and navigate to `http://localhost:8001` to access the URL shortener application.
 
 ## Contributing
 
