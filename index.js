@@ -1,9 +1,14 @@
 const express=require("express");
 const path=require("path")
+const cookieParser=require("cookie-parser")
+const{restrictToLoggedinUserOnly,checkAuth}=require("./middlewares/auth")
 const port=8001;
 const app=express();
+
 const urlRoute=require("./routes/url");
 const staticRouter=require("./routes/staticrouter");
+const userRoute=require("./routes/user");
+
 const {connecttomongodb}=require("./connect");
 const URL =require("./models/url");
 connecttomongodb("mongodb://localhost:27017/short-url").then(()=>console.log("Mongodb Connected"));
@@ -11,8 +16,11 @@ app.set("view engine","ejs");
 app.set("views",path.resolve("./views"));
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
-app.use("/url",urlRoute);
-app.use("/",staticRouter);
+app.use(cookieParser());
+
+app.use("/url",restrictToLoggedinUserOnly,urlRoute);
+app.use("/",checkAuth,staticRouter);
+app.use("/user",userRoute);
 
 app.get("/test",async (req,res)=>{
     const allurls=await URL.find({});
