@@ -1,54 +1,68 @@
+Here's a more formal version of your README file suitable for a job project, including the Docker information:
+
+---
+
 # URL Shortener
 
-This is a simple URL shortener web application built using Node.js, Express.js, MongoDB, HTML, and CSS. The application allows users to shorten URLs, store them in a database for future use, and view the shortened URLs along with the number of times they have been visited.
+This URL shortener web application, developed using Node.js, Express.js, MongoDB, HTML, and CSS, enables users to shorten URLs, store them in a database, and track the visit count for each shortened URL.
 
 ## Features
 
-- **Shorten URLs**: Users can enter any URL and generate a shortened version of it.
-- **Store Shortened URLs**: The shortened URLs are stored in a MongoDB database for future use.
-- **View Shortened URLs**: Users can view the list of shortened URLs in a table format.
-- **Visit Count**: The application tracks the number of times each shortened URL has been visited and displays it in the table.
+- **URL Shortening**: Users can input any URL and receive a shortened version.
+- **Persistent Storage**: Shortened URLs are stored in a MongoDB database for future reference.
+- **URL Management**: Users can view a list of all shortened URLs in a table format.
+- **Visit Tracking**: The application tracks and displays the number of visits for each shortened URL.
 
 ## Technologies Used
 
-- **Node.js**: A JavaScript runtime used for building server-side applications.
-- **Express.js**: A web application framework for Node.js used for building web applications and APIs.
-- **MongoDB**: A NoSQL database used for storing the shortened URLs and visit counts.
-- **HTML**: Used for creating the structure and content of the web pages.
-- **CSS**: Used for styling the HTML elements and improving the visual appearance of the web pages.
+- **Node.js**: JavaScript runtime for server-side development.
+- **Express.js**: Web application framework for building APIs and web applications.
+- **MongoDB**: NoSQL database for storing shortened URLs and visit counts.
+- **HTML**: Markup language for structuring web pages.
+- **CSS**: Styling language for enhancing the visual appearance of web pages.
 
 ## Getting Started
 
 To run the application locally, follow these steps:
 
-1. Clone the repository:
-git clone https://github.com/your-username/url-shortener.git
+1. **Clone the Repository**:
+   ```sh
+   git clone https://github.com/tanayduddalwar/SnipUrl.git
+   ```
 
-2. Install dependencies:
-    "ejs": "^3.1.9",
-        "express": "^4.18.3",
-        "mongoose": "^8.2.2",
-        "nodemon": "^3.1.0",
-        "shortid": "^2.2.16"
+2. **Install Dependencies**:
+   ```sh
+   npm install
+   ```
 
-3. Set up MongoDB:
-- Install MongoDB locally or use a cloud-hosted MongoDB service.
-- Update the MongoDB connection URL in the application configuration.
+3. **Set Up MongoDB**:
+   - Install MongoDB locally or use a cloud-hosted MongoDB service.
+   - Update the MongoDB connection URL in the application configuration.
 
- Or instead of just doing it pull the image of the repi from docker hub docker pull tanayduddalwar/url-shortner-app and run it locally no need to do the steps 3 amd 4 
+   Alternatively, you can pull the Docker image and run it locally without needing to perform steps 3 and 4:
+   ```sh
+   docker pull tanayduddalwar/url-shortner-app
+   docker run -p 8001:8001 tanayduddalwar/url-shortner-app
+   ```
 
-4. Start the server:
-npm start
+4. **Start the Server**:
+   ```sh
+   npm start
+   ```
 
+5. **Access the Application**:
+   - Open your web browser and navigate to `http://localhost:8001` to access the URL shortener application.
 
-5. Access the application:
-- Open your web browser and navigate to `http://localhost:8001` to access the URL shortener application.
+6. **Generate Shortened URLs**:
+   - Once logged into the application, you can generate shortened URLs for any website. The shortened URLs will be saved in your local storage.
 
-6 . Once logged in to the application you can generate the shorten url of any website and it will get saved on your device.
-
-7 . To access the website with shorten url hit the url `http://localhost:8001/url/:shortid`
+7. **Access Websites Using Shortened URLs**:
+   - Use the following URL structure to access websites using the shortened URL: `http://localhost:8001/url/:shortid`
 
 ## Contributing
 
-Contributions are welcome! Feel free to fork the repository and submit pull requests to contribute new features, improvements, or bug fixes.
+Contributions are welcome! Please feel free to fork the repository and submit pull requests to add new features, improvements, or bug fixes.
 
+---
+
+This formalizes the language and clarifies the steps for using Docker.
