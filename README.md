@@ -35,12 +35,18 @@ git clone https://github.com/your-username/url-shortener.git
 - Install MongoDB locally or use a cloud-hosted MongoDB service.
 - Update the MongoDB connection URL in the application configuration.
 
+ Or instead of just doing it pull the image of the repi from docker hub docker pull tanayduddalwar/url-shortner-app and run it locally no need to do the steps 3 amd 4 
+
 4. Start the server:
 npm start
 
 
 5. Access the application:
 - Open your web browser and navigate to `http://localhost:8001` to access the URL shortener application.
+
+6 . Once logged in to the application you can generate the shorten url of any website and it will get saved on your device.
+
+7 . To access the website with shorten url hit the url `http://localhost:8001/url/:shortid`
 
 ## Contributing
 
