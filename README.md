@@ -1,7 +1,3 @@
-Here's a more formal version of your README file suitable for a job project, including the Docker information:
-
----
-
 # URL Shortener
 
 This URL shortener web application, developed using Node.js, Express.js, MongoDB, HTML, and CSS, enables users to shorten URLs, store them in a database, and track the visit count for each shortened URL.
