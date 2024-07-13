@@ -1,27 +1,25 @@
 const mongoose = require("mongoose");
-const express=require("express");
-const urlschema = new mongoose.Schema(
-  {
-    shortId: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    redirecturl: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    visithistory: [{timestamp:{
-        type:Number
-    }}],
-    createdby:{
-      type:mongoose.Schema.Types.ObjectId,
-      ref:"users"
-    }
-  },
-  { timestamps: true }
-);
-const URL=mongoose.model("url",urlschema);
-module.exports = URL;
 
+const urlSchema = new mongoose.Schema({
+    shortId: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    redirecturl: { // Field name in lowercase
+        type: String,
+        required: true,
+        unique: true,
+    },
+    visithistory: [{
+        timestamp: { type: Date, default: Date.now }
+    }],
+    createdby: { // Field name in lowercase
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        required: true,
+    }
+}, { timestamps: true });
+
+const URL = mongoose.model("URL", urlSchema);
+module.exports = URL;

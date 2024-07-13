@@ -1,13 +1,14 @@
-const seesionIdtoUserMap=new Map();
+const sessionIdToUserMap = new Map();
 
-function setUser(id,user){
-    seesionIdtoUserMap.set(id,user);
+function setUser(id, user) {
+    sessionIdToUserMap.set(id, user);
 }
 
-function getuser(id){
-    return seesionIdtoUserMap.get(id);
+function getuser(id) {
+    return sessionIdToUserMap.get(id);
 }
 
-module.exports={
-    setUser, getuser
-}
+module.exports = {
+    setUser, 
+    getuser
+};
